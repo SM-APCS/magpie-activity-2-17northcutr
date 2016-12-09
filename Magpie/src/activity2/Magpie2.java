@@ -39,15 +39,29 @@ public class Magpie2
 		String response = "";
 		if (statement.indexOf("no") >= 0)
 		{
-			response = "Why so negative?";
+			response = "Why not?";
 		}
 		else if (statement.indexOf("mother") >= 0
 				|| statement.indexOf("father") >= 0
-				|| statement.indexOf("sister") >= 0
 				|| statement.indexOf("brother") >= 0)
 		{
 			response = "Tell me more about your family.";
 		}
+                else if(statement.indexOf("sister")>=0){
+                    response = "what is your oppinion of your sister?";
+                }
+                else if(statement.indexOf("cat")>=0 || statement.indexOf("dog")>=0){
+                    response = "Tell me more about your pets.";
+                }
+                else if(statement.indexOf("Mr. Tholking")>=0){
+                    response = "He seems like a nice teacher";
+                }
+                else if(statement.indexOf("memes")>=0){
+                    response = "Boi gimme yo dank memes!";
+                }
+                else if(statement.trim().length() == 0){
+                    response = "please say something";
+                }
 		else
 		{
 			response = getRandomResponse();
@@ -61,7 +75,7 @@ public class Magpie2
 	 */
 	private String getRandomResponse()
 	{
-		final int NUMBER_OF_RESPONSES = 4;
+		final int NUMBER_OF_RESPONSES = 5;
 		double r = Math.random();
 		int whichResponse = (int)(r * NUMBER_OF_RESPONSES);
 		String response = "";
@@ -82,6 +96,12 @@ public class Magpie2
 		{
 			response = "You don't say.";
 		}
+                else if (whichResponse == 4){
+                    response = "The FitnessGram™ Pacer Test is a multistage aerobic capacity test that progressively gets more difficult as it continues. The 20 meter pacer test will begin in 30 seconds. Line up at the start. The running speed starts slowly, but gets faster each minute after you hear this signal. [beep] A single lap should be completed each time you hear this sound. [ding] Remember to run in a straight line, and run as long as possible. The second time you fail to complete a lap before the sound, your test is over. The test will begin on the word start. On your mark, get ready, start.";
+                }
+                else if (whichResponse == 5){
+                    response = "How dare you say that you white cis male scum! I'm T R I G G E R E D!!!11!";
+                }
 
 		return response;
 	}
